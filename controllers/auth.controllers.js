@@ -11,6 +11,7 @@ exports.signup = (req, res) => {
 
         username: req.body.username,
         email: req.body.email,
+        schoolName:req.body.schoolName,
         phone: req.body.phone,
         password: bcrypt.hashSync(req.body.password, 8)
     })
@@ -83,7 +84,9 @@ exports.signin = (req, res) => {
                 userName: user.username,
                 roles: user.roles,
                 image: user.image,
-                phone: user.phone
+                schoolName:user.schoolName,
+                phone: user.phone,
+                email:user.email,
             }, config.secret, {
                 expiresIn: 86400 
             });
@@ -91,7 +94,7 @@ exports.signin = (req, res) => {
                 authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
             }
             res.status(200).send({
-                id: user._id, userName: user.userName, phone: user.phone, userImage: user.image,
+                id: user._id, userName: user.userName, phone: user.phone, schoolName:user.schoolName, userImage: user.image,   email:user.email,
                 roles: authorities, accessToken: token
             });
         });

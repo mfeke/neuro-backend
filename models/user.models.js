@@ -4,11 +4,12 @@ module.exports = mongoose =>{
     const user =new mongoose.Schema({
         username: String,
         email: String,
+        schoolName:String,
         password: String,
         image: {
             type: String,
-            required: false,
-            default: 'https://i.postimg.cc/Hk2LqXPS/02th-egg-person.jpg'
+            required: true,
+            default: 'https://i.postimg.cc/L4YXpf8J/f10ff70a7155e5ab666bcdd1b45b726d.jpg'
         },
         phone: {
             required: true,
