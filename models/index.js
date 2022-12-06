@@ -9,6 +9,7 @@ db.mongoose = mongoose;
 
 db.user = require("./user.models")(mongoose)
 db.role = require("./role.models")
+db.feedback = require("./studentFeedback.models")(mongoose)
 db.url = dbConfig.url;
 db.ROLES = ["student", "admin", "teacher"];
 

@@ -39,7 +39,7 @@ exports.signup = (req, res) => {
                     });
                 });
         } else {
-            Role.findOne({ name: "patient" }, (err, role) => {
+            Role.findOne({ name: "student" }, (err, role) => {
                 if (err) {
                     res.status(500).send({ message: err });
                     return;
